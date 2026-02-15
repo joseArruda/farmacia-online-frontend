@@ -1,0 +1,28 @@
+<app-header />
+<main class="home-container">
+  <div class="background-image">
+    <img src="assets/images/background.png" alt="background" />
+    <h1>Página Home</h1>
+  </div>
+
+  <h2 class="title-products-h2">PRODUTOS</h2>
+  <section class="container-product">
+    <div *ngFor="let product of products" class="card-product">
+      <div class="image-product">
+        <img [src]="'http://127.0.0.1:8000/storage/' + product.image" />
+      </div>
+      <div class="information-product">
+        <h2 class="name-product">{{ product.name }}</h2>
+        <p class="description-product">
+          {{ product.description }}
+        </p>
+        <p class="category-product">Categoria: {{ product.category }}</p>
+        <p class="stock-product">Estoque: {{ product.stock }}</p>
+        <p class="price-product">R$: {{ product.price }}</p>
+      </div>
+      <div class="btn-actions">
+        <button (click)="addCart(product.id)" class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+</main>

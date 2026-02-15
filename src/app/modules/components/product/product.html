@@ -1,0 +1,23 @@
+<h2 class="title-products-h2">PRODUTOS</h2>
+<section class="container-product">
+  <div *ngFor="let product of products" class="card-product">
+    <div class="image-product">
+      <img [src]="'http://127.0.0.1:8000/storage/' + product.image" />
+    </div>
+    <div class="information-product">
+      <h2 class="name-product">{{ product.name }}</h2>
+      <p class="description-product">
+        {{ product.description }}
+      </p>
+      <p class="category-product">
+        {{ product.category }}
+      </p>
+      <p class="stock-product">Estoque: {{ product.stock }}</p>
+      <p class="price-product">R$ {{ product.price }}</p>
+    </div>
+    <div class="btn-actions">
+      <button class="btn-edit" (click)="editProduct(product.id)">Editar</button>
+      <button class="btn-remove" (click)="removeProduct(product.id)">Apagar</button>
+    </div>
+  </div>
+</section>

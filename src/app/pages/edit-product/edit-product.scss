@@ -1,0 +1,95 @@
+.container-edit-product{
+    background-color: var(--white-ice);
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        
+        width: 20rem;
+        border-radius: 10px;
+        padding: 10px 5px;
+
+        .image-product{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+                background-color: #fff;
+                border: #000;
+                width: 100%;
+                padding: 5px;
+            }
+
+        .edit{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 5px;
+            padding: 10px 0;
+
+            
+
+            label{
+                width: 100%;
+                color: var(--mattle-black);
+                font-weight: 700;
+            }
+
+            input{
+                width: 15rem;
+                height: 2rem;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                padding: 0 5px;
+                border-radius: 5px;
+                background-color: #fff;
+                border: 1px solid var(--grey);
+                outline: none;
+            }
+
+            input[type='file']{
+                height: 20px;
+                width: 100%;
+                padding: 0;
+            }
+
+            .label-image{
+                cursor: pointer;
+                border: 2px solid var(--grey);
+                border-radius: 5px;
+                width: 100%;
+                height: 2rem;
+                background-color: #303030;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s;
+                &:hover{
+                    background-color: #000;
+                    border: 2px solid #636363;
+                }
+            }
+
+
+        }
+
+        button{
+        padding: 10px 30px;
+        font-size: 16px;
+
+        background-color: var(--primary);
+        color: var(--white-ice);
+        font-weight: 600;
+        border: 2px solid var(--mattle-black);
+        border-radius: 5px;
+        cursor: pointer;
+            &:hover{
+                background-color: #a00606;
+            }
+        }
+    }
+}

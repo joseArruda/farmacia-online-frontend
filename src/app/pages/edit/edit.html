@@ -1,0 +1,31 @@
+<app-header />
+<div class="container-edit-product">
+  <h1 class="title-edit-product">Editar Produto</h1>
+  <section *ngIf="product">
+    <div class="image-product edit">
+      <label class="label-image" for="image">Upload da imagem</label>
+      <input type="file" id="image" />
+    </div>
+    <div class="name-product edit">
+      <label for="name">Nome do Produto</label>
+      <input [(ngModel)]="product.name" type="text" id="name" />
+    </div>
+    <div class="description-product edit">
+      <label for="description">Descrição do Produto</label>
+      <input [(ngModel)]="product.description" type="text" id="description" />
+    </div>
+    <div class="category-product edit">
+      <label for="category">Categoria do Produto</label>
+      <input [(ngModel)]="product.category" type="text" id="category" />
+    </div>
+    <div class="stock-product edit">
+      <label for="price">Quantidade do Produto</label>
+      <input [(ngModel)]="product.stock" type="number" id="price" />
+    </div>
+    <div class="price-product edit">
+      <label for="price">Preço do Produto</label>
+      <input [(ngModel)]="product.price" type="number" id="price" />
+    </div>
+    <button (click)="updateProduct()">Pronto</button>
+  </section>
+</div>

@@ -1,0 +1,19 @@
+<app-header />
+
+<main class="container-cart">
+  <section class="product-cart" *ngFor="let product of cartProducts">
+    <img
+      class="image-product-cart"
+      [src]="'http://127.0.0.1:8000/storage/' + product.product.image"
+    />
+    <p class="name-product-cart">{{ product.product.name }}</p>
+    <p class="quantity-product-cart"><span>Quantidade:</span>{{ product.quantity }}</p>
+    <p class="price-product-cart">
+      R$: {{ +product.product.price * product.quantity | number: '1.2-2' }}
+    </p>
+    <div class="btn-action-cart">
+      <button class="btn-remove-cart" (click)="removeCart(product.id)">Remover</button>
+      <button class="btn-add-cart" (click)="addCart(product.product.id)">Adicionar</button>
+    </div>
+  </section>
+</main>
