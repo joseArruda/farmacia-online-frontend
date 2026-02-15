@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Inventary } from '../../services/inventary';
+import { Inventary } from '../../services/inventary.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { Header } from '../../modules/components/header/header';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit',
@@ -27,15 +28,19 @@ export class Edit {
     this.inventaryService.getById(id)
     .subscribe((data)=>{
       this.product = data
-      console.log(data)
     })
   }
 
   updateProduct(){
     this.inventaryService.updateProduct(this.product.id, this.product)
     .subscribe(()=>{
-      console.log("Atualizado!")
       this.router.navigate(['/editproduct']);
+      Swal.fire({
+        icon: 'success',
+        title: 'Produto editado com sucesso!',
+        showConfirmButton: false,
+        timer: 1050
+      })
     })
   }
 }

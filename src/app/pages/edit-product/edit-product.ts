@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Header } from '../../modules/components/header/header';
-import { Button } from '../../modules/components/button/button';
-import { Inventary } from '../../services/inventary';
-import { CommonModule, NgIf } from "@angular/common";
-import IProductsInterface from '../../modules/interface/IProducts.Interface';
+import { Inventary } from '../../services/inventary.service';
+import { CommonModule } from "@angular/common";
+import IProductsInterface from '../../interface/IProducts.Interface';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../modules/components/product/product';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-product',
@@ -41,9 +41,7 @@ export class EditProduct {
         formData.append('image', this.product.image);
     }
     this.inventaryService.createProduct(formData)
-    .subscribe(data => {
-      console.log(data);
-
+    .subscribe(()=>{
       this.product = {
         id: 0,
         name: '',
@@ -52,7 +50,13 @@ export class EditProduct {
         stock: 0,
         price: 0,
         image: null
-      }   
+      }
+      Swal.fire({
+        icon: 'success',
+        title: 'Produto registrado!',
+        showConfirmButton: false,
+        timer: 1050
+      })
     })
   }
 

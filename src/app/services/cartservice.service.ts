@@ -15,10 +15,10 @@ export class Cartservice {
   }
 
   addProductCart(id: number, quantity: number = 1):Observable<any>{
-    return this.http.post(`${this.api}/add`, {id_product:id, quantity:quantity})
+    return this.http.post(`${this.api}`, {id_product:id, quantity:quantity})
   }
 
   removeProduct(id: number):Observable<any>{
-    return this.http.delete(`${this.api}/remove/${id}`);
+    return this.http.delete(`${this.api}/${id}`);
   }
 }

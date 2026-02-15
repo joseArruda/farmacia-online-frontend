@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import IProductsInterface from '../modules/interface/IProducts.Interface';
+import IProductsInterface from '../interface/IProducts.Interface';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ export class Inventary {
   }
 
   updateProduct(id:any, data:any):Observable<any>{
-    return this.http.post(`${this.api}/${id}`, data);
+    return this.http.put(`${this.api}/${id}`, data);
   }
   
   removeProduct(id: number):Observable<any>{

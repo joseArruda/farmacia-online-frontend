@@ -80,9 +80,11 @@
         .functions-header{
             display: flex;
             gap: 20px;
+            font-size: 16px;
             a{
                 color: var(--white-ice);
                 cursor: pointer;
+                font-weight: 600;
             }
             a:hover{
                 text-decoration: underline;

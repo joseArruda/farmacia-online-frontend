@@ -1,4 +1,4 @@
-<app-header />
+<app-header (eventText)="filterProduct($event)" />
 <main class="home-container">
   <div class="background-image">
     <img src="assets/images/background.png" alt="background" />
@@ -21,6 +21,7 @@
         <p class="price-product">R$: {{ product.price }}</p>
       </div>
       <div class="btn-actions">
+        <button (click)="goToDetails(product.id)" class="btn-add">Ver detalhes</button>
         <button (click)="addCart(product.id)" class="btn-add">Adicionar ao Carrinho</button>
       </div>
     </div>

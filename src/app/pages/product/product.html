@@ -1,0 +1,15 @@
+<app-header />
+<section class="container-product" *ngIf="product">
+  <div class="card-product">
+    <div class="image-product">
+      <img [src]="'http://127.0.0.1:8000/storage/' + product.image" />
+    </div>
+    <div class="information-product">
+      <h2 class="name-product">{{ product.name }}</h2>
+      <p class="description-product">{{ product.description }}</p>
+      <p class="category-product">Categoria: {{ product.category }}</p>
+      <p class="stock-product">Estoque: {{ product.stock }}</p>
+      <p class="price-product">R$: {{ product.price }}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+.container-product{
+    .card-product{
+        margin: auto;
+        width: 350px;
+        .image-product{
+            img{
+                width: 100%;
+                max-height: 600px;
+                border-radius: 10px;
+            }
+        }
+        .information-product{
+            .name-product{
+                text-align: center;
+                font-size: 42px;
+            }
+            .description-product{
+                text-align: start;
+                font-size: 18px;
+            }
+            .category-product{
+                text-align: start;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .stock-product{
+                text-align: start;
+                font-size: 18px;
+            }
+            .price-product{
+                color: #25b308;
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+    }
+}

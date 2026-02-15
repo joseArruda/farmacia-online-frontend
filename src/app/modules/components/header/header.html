@@ -7,16 +7,22 @@
       </a>
     </div>
     <section class="section-header">
-      <div class="search-bar">
+      <div *ngIf="router.url === '/home'" class="search-bar">
         <label for="product">
           <img src="assets/icons/search.svg" alt="search" />
         </label>
-        <input type="text" name="product" id="product" />
+        <input
+          type="text"
+          name="product"
+          id="product"
+          placeholder="Pesquisar pelo produto..."
+          [(ngModel)]="search"
+          (input)="searchText()"
+        />
       </div>
       <div class="functions-header">
         <a routerLink="/"> Home </a>
         <a routerLink="/cart"> Carrinho </a>
-        <a routerLink="/aboutus"> Sobre </a>
         <a routerLink="/editproduct"> Cadastrar e editar produtos </a>
       </div>
     </section>

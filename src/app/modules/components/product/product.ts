@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Inventary } from '../../../services/inventary';
-import IProductsInterface from '../../interface/IProducts.Interface';
+import { Inventary } from '../../../services/inventary.service';
+import IProductsInterface from '../../../interface/IProducts.Interface';
 import { CommonModule } from '@angular/common';
 
 @Component({

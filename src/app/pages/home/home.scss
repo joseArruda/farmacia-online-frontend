@@ -38,19 +38,26 @@
         width: 300px;
         height: 440px;
         background-color: #fff;
-        border: 2px solid var(--mattle-black);
+        border: 2px solid #e0dfdf;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10px 5px;
+        padding: 0px 0px 10px;
         margin: 0 auto;
+        transition: ease-in-out 0.3s;
+        &:hover{
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            transform: translateY(-3px);
+        }
 
         .image-product{
             img{
+                width: 300px;
                 max-width: 300px;
-                height: 180px;
-                max-height: 180px;
+                height: 200px;
+                max-height: 190px;
                 border-radius: 10px;
             }
         }
@@ -61,14 +68,16 @@
             flex-direction: column;
             align-items: start;
             margin: 5px 10px;
-            background-color: #ececec;
-            height: 300px;
+            height: 220px;
             border-radius: 5px;
+            text-transform: capitalize;
             .name-product{
                 margin: 10px auto;
-                font-weight: 400;
+                font-weight: 600;
+                
             }
             .description-product{
+                text-transform: uppercase;
                 font-size: 15px;
                 margin: 0;
                 padding: 0 10px;
@@ -103,30 +112,23 @@
         }
         .btn-actions{
             display: flex;
-            position: relative;
             gap: 5px;
-                .btn-remove, .btn-add{
+            .btn-add{
                 padding: 5px 10px;
-                font-size: 16px;
+                font-size: 14px;
                 color: var(--white-ice);
                 font-weight: 600;
                 border: 2px solid var(--mattle-black);
                 border-radius: 5px;
                 cursor: pointer;
                 opacity: 0.9;
-                }
-                .btn-add{
-                    background-color: #129700;
+                background: var(--primary);
                 }
                 .btn-add:hover{
                     opacity: 1;
                 }
-                .btn-remove{
-                    background-color: var(--primary);
-                }
-                .btn-remove:hover{
-                    opacity: 1;
-                }
+        }
                 
             }
-        }}}
+        }
+    }
