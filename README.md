@@ -1,59 +1,33 @@
-# FarmaciaFrontend
+FarmaEagle 🦅💊
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Bem-vindo ao FarmaEagle, seu projeto de farmácia online completo e funcional!
 
-## Development server
+Este sistema foi desenvolvido para oferecer uma experiência intuitiva e prática tanto para clientes quanto para administradores. Com ele, é possível navegar por produtos, visualizar detalhes, adicionar itens ao carrinho e gerenciar o estoque de forma simples e eficiente.
 
-To start a local development server, run:
+Funcionalidades principais
 
-```bash
-ng serve
-```
+Exibição de produtos com imagens, descrição, preço e estoque.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Página de detalhes individual para cada produto.
 
-## Code scaffolding
+Carrinho de compras integrado.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cadastro, edição e remoção de produtos pelo administrador.
 
-```bash
-ng generate component component-name
-```
+Sistema organizado de rotas e API RESTful com Laravel.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Front-end moderno e responsivo feito em Angular.
 
-```bash
-ng generate --help
-```
+Tecnologias utilizadas
 
-## Building
+Backend: Laravel
 
-To build the project run:
+Frontend: Angular
 
-```bash
-ng build
-```
+Banco de dados: MySQL
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Controle de versão: Git e GitHub
 
-## Running unit tests
+Fique à vontade para explorar, testar e contribuir com melhorias! 🚀
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+FarmaEagle é mais que um projeto, é a união de praticidade e tecnologia para oferecer uma experiência completa de farmácia online.
