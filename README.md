@@ -2,7 +2,7 @@ FarmaEagle 🦅💊
 
 Bem-vindo ao FarmaEagle, seu projeto de farmácia online completo e funcional!
 
-Este sistema foi desenvolvido para oferecer uma experiência intuitiva e prática tanto para clientes quanto para administradores. Com ele, é possível navegar por produtos, visualizar detalhes, adicionar itens ao carrinho e gerenciar o estoque de forma simples e eficiente.
+Este sistema foi desenvolvido para oferecer uma experiência intuitiva e prática. Com ele, é possível navegar por produtos, visualizar detalhes, adicionar itens ao carrinho e gerenciar o estoque de forma simples e eficiente.
 
 Funcionalidades principais
 
@@ -12,7 +12,7 @@ Página de detalhes individual para cada produto.
 
 Carrinho de compras integrado.
 
-Cadastro, edição e remoção de produtos pelo administrador.
+Cadastro, edição e remoção de produtos.
 
 Sistema organizado de rotas e API RESTful com Laravel.
 
