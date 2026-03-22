@@ -1,0 +1,31 @@
+<header class="header-container">
+  <div class="header">
+    <div class="logo">
+      <a routerLink="/">
+        <img src="assets/images/logo.png" alt="logo" />
+        <p class="title"><span>Farma</span> Eagle</p>
+      </a>
+    </div>
+    <section class="section-header">
+      <div class="search-bar">
+        <label for="product">
+          <img src="assets/icons/search.svg" alt="search" />
+        </label>
+        <input
+          type="text"
+          name="product"
+          id="product"
+          placeholder="Pesquisar pelo produto..."
+          [(ngModel)]="search"
+          (input)="searchText()"
+        />
+      </div>
+      <div class="functions-header">
+        <a routerLink="/"> Home </a>
+        <a routerLink="/cart"> Carrinho </a>
+        <a routerLink="/product/new"> Cadastrar produtos </a>
+        <a routerLink="/products"> Lista de produtos </a>
+      </div>
+    </section>
+  </div>
+</header>

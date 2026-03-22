@@ -1,38 +1,54 @@
 import { Component } from '@angular/core';
-import { Header } from '../../modules/components/header/header';
-import { Inventary } from '../../services/inventary.service';
-import IProductsInterface from '../../interface/IProducts.Interface';
-import { NgForOf } from "@angular/common";
-import { Cartservice } from '../../services/cartservice.service';
-import { Router } from "@angular/router";
+import { NgForOf, NgIf } from "@angular/common";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+
+import { Navbar } from '../../shared/components/navbar/navbar';
+import { InventoryService } from '../../core/services/inventoryService.service';
+import { Product } from '../../models/product.model';
+import { Cartservice } from '../../core/services/cartservice.service';
+
 import Swal from 'sweetalert2';
+import { ProductCard } from '../../shared/components/product-card/product-card';
 
 @Component({
   selector: 'app-home',
    standalone: true,
-  imports: [ Header, NgForOf ],
+  imports: [ NgForOf, RouterLink, NgIf, Navbar, ProductCard],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
-  products: IProductsInterface[]=[];
-  allProducts: IProductsInterface[]=[];
+  products: Product[]=[];
+  allProducts: Product[]=[];
   cartProduct: []=[];
+
+  currentPage: number = 1;
+  lastPage: number = 1;
+
   
     constructor(
-      private inventaryService: Inventary,
+      private inventoryService: InventoryService,
       private cartService: Cartservice,
-      private router: Router
+      private router: Router,
+      private route: ActivatedRoute
     ){}
   
     ngOnInit(){
-      this.inventaryService.getAll()
-      .subscribe({
-        next: (response)=>{
-          this.products = response;
-          this.allProducts = response;
-        },
-        error: (err) => console.error(err)
+      this.route.queryParams.subscribe(params=>{
+        console.log('parametros: ',params)
+        this.currentPage = params['page'] || 1;
+        this.loadProducts();
+      })
+    }
+
+    loadProducts(){
+      this.inventoryService.getAll(this.currentPage, 10)
+      .subscribe(response=>{
+        console.log('load: ',response.data.data);
+        this.products = response.data.data;
+        this.allProducts = response.data.data;
+        this.currentPage = response.data.current_page;
+        this.lastPage = response.data.last_page;
       })
     }
 
@@ -49,15 +65,15 @@ export class Home {
       })
     }
   
-    removeProduct(id: number){
-      this.inventaryService.removeProduct(id).
-      subscribe(()=>{
-        this.products = this.products.filter(i=>i.id != id)
-      })
-    }
+    // removeProduct(id: number){
+    //   this.inventoryService.removeProduct(id).
+    //   subscribe(()=>{
+    //     this.products = this.products.filter(i=>i.id != id)
+    //   })
+    // }
 
     goToDetails(id: number){
-      this.router.navigate(['/details', id]);
+      this.router.navigate(['product/details', id]);
     }
 
     filterProduct(text: string){
@@ -67,6 +83,6 @@ export class Home {
       }
         this.products = this.allProducts.filter(product =>
         product.name.toLowerCase().includes(text.toLowerCase()))
-      }
+    }
 }
 

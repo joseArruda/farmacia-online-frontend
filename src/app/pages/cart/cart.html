@@ -1,19 +1,55 @@
-<app-header />
-
+<app-navbar />
+<div class="your-cart">
+  <h2>Seu Carrinho de Compras</h2>
+</div>
 <main class="container-cart">
-  <section class="product-cart" *ngFor="let product of cartProducts">
-    <img
-      class="image-product-cart"
-      [src]="'http://127.0.0.1:8000/storage/' + product.product.image"
-    />
-    <p class="name-product-cart">{{ product.product.name }}</p>
-    <p class="quantity-product-cart"><span>Quantidade:</span>{{ product.quantity }}</p>
-    <p class="price-product-cart">
-      R$: {{ +product.product.price * product.quantity | number: '1.2-2' }}
-    </p>
-    <div class="btn-action-cart">
-      <button class="btn-remove-cart" (click)="removeCart(product.id)">Remover</button>
-      <button class="btn-add-cart" (click)="addCart(product.product.id)">Adicionar</button>
+  <section class="product-cart-container">
+    <section class="product-cart" *ngFor="let product of cartProducts">
+      <div class="container-image">
+        <img
+          class="image-product-cart-blur"
+          [src]="'http://127.0.0.1:8000/storage/' + product.product.image"
+        />
+        <img
+          class="image-product-cart"
+          [src]="'http://127.0.0.1:8000/storage/' + product.product.image"
+        />
+      </div>
+
+      <div class="details-product-cart">
+        <p class="name-product-cart">{{ product.product.name }}</p>
+
+        <section class="section-product-handling">
+          <div class="quantity-cart-product">
+            <p class="quantity-product-cart">
+              <button class="add-product-cart">-</button>
+              {{ product.quantity }}
+              <button class="subtract-product-cart">+</button>
+            </p>
+          </div>
+
+          <div class="total-product">
+            <p class="price-product-cart">
+              R$: {{ +product.product.price * product.quantity | number: '1.2-2' }}
+            </p>
+            <button class="remove-product-cart" (click)="removeCart(product.id)">
+              <img src="assets/icons/trash.svg" alt="" />
+            </button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+
+  <section class="section-final-cart">
+    <h3>Resumo do Pedido</h3>
+    <div class="total-price">
+      <h3>Total:</h3>
+      <p class="price">R$ 255,65</p>
+    </div>
+    <div class="btn-actions">
+      <button class="continue-shopping">Continuar Comprando</button>
+      <button class="finalize-purchase">Finalizar Compra</button>
     </div>
   </section>
 </main>

@@ -1,0 +1,65 @@
+<section class="container-product">
+  <div *ngFor="let product of products" class="card-product">
+    <div class="image-container">
+      <img
+        class="image-blur"
+        [src]="'http://127.0.0.1:8000/storage/' + product.image"
+        [style.background-image]="'http://127.0.0.1:8000/storage/' + product.image"
+      />
+      <img class="product-image" [src]="'http://127.0.0.1:8000/storage/' + product.image" />
+    </div>
+
+    <div class="information-product">
+      <h2 class="name-product">{{ product.name }}</h2>
+      <p class="description-product">
+        {{ product.description }}
+      </p>
+      <div class="description-details">
+        <p class="category-product">
+          <img class="img-category" src="assets/icons/capsule.svg" alt="" />
+          {{ product.category }}
+        </p>
+        <p class="stock-product">
+          <img src="assets/icons/checked.svg" alt="" />
+          Estoque: {{ product.stock }}
+        </p>
+        <p class="price-product">
+          <img src="assets/icons/tags.svg" alt="" />
+          R$ {{ product.price }}
+        </p>
+      </div>
+    </div>
+
+    <div class="btn-actions">
+      <button
+        *ngIf="mode === 'shop'"
+        class="btn-action-card btn-details"
+        (click)="goToDetails(product.id)"
+      >
+        <img src="assets/icons/card-list.svg" alt="" />Detalhes
+      </button>
+      <button
+        *ngIf="mode === 'shop'"
+        class="btn-action-card btn-add-cart"
+        (click)="removeProduct(product.id)"
+      >
+        <img src="assets/icons/cart.svg" alt="" />Adicionar
+      </button>
+
+      <button
+        *ngIf="mode === 'admin'"
+        class="btn-action-card btn-edit"
+        (click)="editProduct(product.id)"
+      >
+        <img src="assets/icons/pen.svg" alt="" />Editar
+      </button>
+      <button
+        *ngIf="mode === 'admin'"
+        class="btn-action-card btn-remove"
+        (click)="removeProduct(product.id)"
+      >
+        <img src="assets/icons/trash.svg" alt="" />Apagar
+      </button>
+    </div>
+  </div>
+</section>

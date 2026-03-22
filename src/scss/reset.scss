@@ -2,17 +2,30 @@
     --primary: #690404;
     --secondary: #e71c1c;
     --tertiary: #ffb31b;
+    --orange-dark: #e98c00;
     --white-ice: #f6f6f6;
+    --green-dark: #03300b;
+    --green-forest: #2e6f40;
     --mattle-black: #28282b;
     --grey: #dcdfe7;
-
+    --wine-red: #4d0707;
 }
 
 
 html, body{
+    min-height: 100%;
+    height: auto;
     margin: 0;
     padding: 0;
-    font-family: "Raleway", sans-serif
+    font-family: "Raleway", sans-serif;
+}
+
+    body{
+  background: linear-gradient(
+    to bottom,
+    #f7f7f7,
+    #dfdfdf
+  );
 }
 
 a{
