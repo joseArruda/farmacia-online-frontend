@@ -1,5 +1,12 @@
 .home-container{
-    margin-top: 3rem;
+    width: 100%;
+    .home-card-product{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        width: 80vw;
+        margin: 3rem auto 0;
+        gap: 10px;
+    }
 
     .buttons-next-prev-container{
         display: flex;

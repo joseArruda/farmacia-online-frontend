@@ -1,10 +1,13 @@
 <app-navbar (eventText)="filterProduct($event)" />
 <main class="home-container">
-  <app-product-card
-    *ngFor="let product of products"
-    (add)="addCart(product.id)"
-    (details)="goToDetails(product.id)"
-  />
+  <section class="home-card-product">
+    <app-product-card
+      class="product-card"
+      *ngFor="let product of product"
+      [product]="product"
+      (add)="addCart(product.id)"
+    />
+  </section>
 
   <div class="buttons-next-prev-container">
     <button class="btn back-page" [routerLink]="['/']" [queryParams]="{ page: currentPage - 1 }">

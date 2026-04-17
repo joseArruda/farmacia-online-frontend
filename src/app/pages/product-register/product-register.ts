@@ -24,11 +24,22 @@ export class ProductRegister {
     image: null
   };
 
+  categories = [
+    'analgesicos',
+    'medicamentos',
+    'antialergicos',
+    'vitaminas',
+    'higiene',
+    'dermatologia',
+    'infantil'
+  ]
+
   constructor(
     private inventoryService: InventoryService
   ){}
 
   createProduct(){
+    
     const formData = new FormData;
     formData.append('id', this.product.id.toString());
     formData.append('name', this.product.name);
@@ -45,7 +56,7 @@ export class ProductRegister {
         id: 0,
         name: '',
         description: '',
-        category: '',
+        category: 'medicamentos',
         stock: 0,
         price: 0,
         image: null

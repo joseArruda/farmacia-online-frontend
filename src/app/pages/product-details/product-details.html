@@ -1,0 +1,48 @@
+<app-navbar />
+
+<section class="product-details-container" *ngIf="products">
+  <section class="product-details">
+    <img
+      class="img-product-details-blur"
+      [src]="'http://127.0.0.1:8000/storage/' + products.data.image"
+      alt=""
+    />
+    <img
+      class="img-product-details"
+      [src]="'http://127.0.0.1:8000/storage/' + products.data.image"
+      alt=""
+    />
+    <div class="details">
+      <h2 class="name">{{ products.data.name }}</h2>
+      <p class="category">{{ products.data.category }}</p>
+      <p class="price">R$: {{ products.data.price }}</p>
+
+      <div class="btn-action">
+        <button class="btn-add-cart"><img src="assets/icons/cart.svg" alt="" />Adicionar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-description">
+    <div class="description">
+      <h2>Descrição</h2>
+      <p>{{ products.data.description }}</p>
+    </div>
+    <div class="guarantees">
+      <div class="card fast-shipping">
+        <img src="assets/icons/truck.svg" alt="" />
+        <p>Enviamos rápidamente</p>
+      </div>
+
+      <div class="card secure-payment">
+        <img src="assets/icons/geo.svg" alt="" />
+        <p>Enviamos rápidamente</p>
+      </div>
+
+      <div class="card satisfaction">
+        <img src="assets/icons/hand-thumbs-up.svg" alt="" />
+        <p>Enviamos rápidamente</p>
+      </div>
+    </div>
+  </section>
+</section>

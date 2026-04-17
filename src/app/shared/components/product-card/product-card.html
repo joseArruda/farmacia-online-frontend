@@ -1,5 +1,5 @@
 <section class="container-product">
-  <div *ngFor="let product of products" class="card-product">
+  <div class="card-product">
     <div class="image-container">
       <img
         class="image-blur"
@@ -38,11 +38,7 @@
       >
         <img src="assets/icons/card-list.svg" alt="" />Detalhes
       </button>
-      <button
-        *ngIf="mode === 'shop'"
-        class="btn-action-card btn-add-cart"
-        (click)="removeProduct(product.id)"
-      >
+      <button *ngIf="mode === 'shop'" class="btn-action-card btn-add-cart" (click)="addToCart()">
         <img src="assets/icons/cart.svg" alt="" />Adicionar
       </button>
 
@@ -53,13 +49,11 @@
       >
         <img src="assets/icons/pen.svg" alt="" />Editar
       </button>
-      <button
-        *ngIf="mode === 'admin'"
-        class="btn-action-card btn-remove"
-        (click)="removeProduct(product.id)"
-      >
+      <button *ngIf="mode === 'admin'" class="btn-action-card btn-remove">
         <img src="assets/icons/trash.svg" alt="" />Apagar
       </button>
     </div>
   </div>
 </section>
+
+<!-- (click)="removeProduct(product.id)" -->

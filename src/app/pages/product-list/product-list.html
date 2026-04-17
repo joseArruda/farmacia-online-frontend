@@ -1,5 +1,5 @@
 <app-navbar />
 
-<div class="product-list-container">
-  <app-product-card mode="admin" />
-</div>
+<section class="product-list-container">
+  <app-product-card *ngFor="let product of product" [product]="product" mode="admin" />
+</section>

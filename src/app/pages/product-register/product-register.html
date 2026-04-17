@@ -1,29 +1,39 @@
 <app-navbar />
 
-<main class="container-edit-product">
+<main class="container-register-product">
   <section>
-    <h2>Cadastrar produto</h2>
-    <div class="image-product edit">
+    <h2>Cadastrar Produto</h2>
+    <div class="image-product register">
       <label class="label-image" for="image">Upload da imagem</label>
-      <input (change)="RegisteredFile($event)" type="file" id="image" />
+      <input class="upload-image" (change)="RegisteredFile($event)" type="file" id="image" />
     </div>
-    <div class="name-product edit">
+    <div class="name-product register">
       <label for="name">Nome do Produto</label>
       <input [(ngModel)]="product.name" type="text" id="name" />
     </div>
-    <div class="description-product edit">
+    <div class="description-product register">
       <label for="description">Descrição do Produto</label>
       <textarea [(ngModel)]="product.description" type="text" id="description"></textarea>
     </div>
-    <div class="category-product edit">
+    <div class="category-product register">
       <label for="category">Categoria do Produto</label>
-      <input [(ngModel)]="product.category" type="text" id="category" />
+      <select
+        class="category-select"
+        [(ngModel)]="product.category"
+        name="category"
+        type="text"
+        id="category"
+      >
+        <option *ngFor="let c of categories" [value]="c">
+          {{ c }}
+        </option>
+      </select>
     </div>
-    <div class="stock-product edit">
+    <div class="stock-product register">
       <label for="price">Quantidade do Produto</label>
       <input [(ngModel)]="product.stock" type="number" id="price" />
     </div>
-    <div class="price-product edit">
+    <div class="price-product register">
       <label for="price">Preço do Produto</label>
       <input [(ngModel)]="product.price" type="number" id="price" />
     </div>

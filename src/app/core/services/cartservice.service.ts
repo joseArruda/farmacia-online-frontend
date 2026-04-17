@@ -6,19 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Cartservice {
-  private api = 'http://127.0.0.1:8000/api/cart';
+  private readonly API_URL = 'http://127.0.0.1:8000/api/cart';
 
   constructor( private http: HttpClient ){}
 
   getCart():Observable<any>{
-    return this.http.get(`${this.api}`);
+    return this.http.get(`${this.API_URL}`);
   }
 
   addProductCart(id: number, quantity: number = 1):Observable<any>{
-    return this.http.post(`${this.api}`, {id_product:id, quantity:quantity})
+    return this.http.post(`${this.API_URL}`, {id_product:id, quantity:quantity})
   }
 
   removeProduct(id: number):Observable<any>{
-    return this.http.delete(`${this.api}/${id}`);
+    return this.http.delete(`${this.API_URL}/${id}`);
+  }
+
+  updateCart(id: number, action: string):Observable<any>{
+    return this.http.put(`${this.API_URL}/${id}`, {action});
   }
 }

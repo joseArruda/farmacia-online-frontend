@@ -4,7 +4,8 @@
     width: 100%;
     background: linear-gradient(90deg, var(--primary), var(--wine-red));
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    .header{
+    z-index: 99;
+    .nav{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -97,6 +98,10 @@
             text-align: center;
             gap: 28px;
             font-size: 14px;
+            .active-Link{
+                color: #d6d6d6;
+                background: linear-gradient(120deg, #961216,var(--primary));
+            }
             a{
                 display: flex;
                 align-items: center;
@@ -105,7 +110,7 @@
                 cursor: pointer;
                 font-weight: 500;
                 transition: 0.3;
-                padding: 10px 12px;
+                padding: 5px 12px;
                 border-radius: 20px;
                 transition: 0.5s ease-in-out;
             }

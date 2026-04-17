@@ -14,7 +14,7 @@ import { Product } from '../../models/product.model';
   styleUrl: './product-list.scss',
 })
 export class ProductList {
-  products: Product[] = [];
+  product: Product[] = [];
   constructor(
     private route: ActivatedRoute,
     private inventoryService: InventoryService
@@ -24,7 +24,7 @@ export class ProductList {
      this.inventoryService.getAll(1,10)
   .subscribe(response => {
 
-    this.products = response.data.data;
+    this.product = response.data.data;
 
   });
   }

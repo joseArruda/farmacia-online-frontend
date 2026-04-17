@@ -4,6 +4,8 @@
 </div>
 <main class="container-cart">
   <section class="product-cart-container">
+    <p *ngIf="cartProducts.length === 0">Não Há itens no carrinho</p>
+
     <section class="product-cart" *ngFor="let product of cartProducts">
       <div class="container-image">
         <img
@@ -17,14 +19,24 @@
       </div>
 
       <div class="details-product-cart">
-        <p class="name-product-cart">{{ product.product.name }}</p>
+        <section class="section-product">
+          <div class="name-category-product">
+            <p class="name-product-cart">{{ product.product.name }}</p>
+            <p class="category-product-cart">{{ product.product.category }}</p>
+          </div>
+          <p class="price-product">Preço: {{ product.product.price }}</p>
+        </section>
 
         <section class="section-product-handling">
           <div class="quantity-cart-product">
             <p class="quantity-product-cart">
-              <button class="add-product-cart">-</button>
+              <button (click)="updateCart(product.id, 'decrement')" class="add-product-cart">
+                -
+              </button>
               {{ product.quantity }}
-              <button class="subtract-product-cart">+</button>
+              <button (click)="updateCart(product.id, 'increment')" class="subtract-product-cart">
+                +
+              </button>
             </p>
           </div>
 
@@ -42,13 +54,13 @@
   </section>
 
   <section class="section-final-cart">
-    <h3>Resumo do Pedido</h3>
-    <div class="total-price">
+    <h3 class="title-summary">Resumo do Pedido</h3>
+    <div *ngIf="cartProducts.length > 0" class="total-price">
       <h3>Total:</h3>
-      <p class="price">R$ 255,65</p>
+      <p class="price">R$: {{ totalCart() | number: '1.2-2' }}</p>
     </div>
     <div class="btn-actions">
-      <button class="continue-shopping">Continuar Comprando</button>
+      <button routerLink="/" class="continue-shopping">Continuar Comprando</button>
       <button class="finalize-purchase">Finalizar Compra</button>
     </div>
   </section>

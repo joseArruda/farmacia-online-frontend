@@ -18,7 +18,7 @@ import { ProductCard } from '../../shared/components/product-card/product-card';
   styleUrl: './home.scss',
 })
 export class Home {
-  products: Product[]=[];
+  product: Product[]=[];
   allProducts: Product[]=[];
   cartProduct: []=[];
 
@@ -45,7 +45,7 @@ export class Home {
       this.inventoryService.getAll(this.currentPage, 10)
       .subscribe(response=>{
         console.log('load: ',response.data.data);
-        this.products = response.data.data;
+        this.product = response.data.data;
         this.allProducts = response.data.data;
         this.currentPage = response.data.current_page;
         this.lastPage = response.data.last_page;
@@ -60,28 +60,17 @@ export class Home {
           icon: 'success',
           title: 'Produto adicionado ao carrinho!',
           showConfirmButton: false,
-          timer: 1050
+          timer: 700
         })
       })
-    }
-  
-    // removeProduct(id: number){
-    //   this.inventoryService.removeProduct(id).
-    //   subscribe(()=>{
-    //     this.products = this.products.filter(i=>i.id != id)
-    //   })
-    // }
-
-    goToDetails(id: number){
-      this.router.navigate(['product/details', id]);
     }
 
     filterProduct(text: string){
       if(!text){
-        this.products = this.allProducts;
+        this.product = this.allProducts;
         return;
       }
-        this.products = this.allProducts.filter(product =>
+        this.product = this.allProducts.filter(product =>
         product.name.toLowerCase().includes(text.toLowerCase()))
     }
 }

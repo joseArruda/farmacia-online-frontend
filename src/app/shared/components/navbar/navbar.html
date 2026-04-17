@@ -1,5 +1,5 @@
 <header class="header-container">
-  <div class="header">
+  <nav class="nav">
     <div class="logo">
       <a routerLink="/">
         <img src="assets/images/logo.png" alt="logo" />
@@ -21,11 +21,17 @@
         />
       </div>
       <div class="functions-header">
-        <a routerLink="/"> Home </a>
-        <a routerLink="/cart"> Carrinho </a>
-        <a routerLink="/product/new"> Cadastrar produtos </a>
-        <a routerLink="/products"> Lista de produtos </a>
+        <a
+          routerLink="/home"
+          routerLinkActive="active-Link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </a>
+        <a routerLink="/cart" routerLinkActive="active-Link"> Carrinho </a>
+        <a routerLink="/product/new" routerLinkActive="active-Link"> Cadastrar produtos </a>
+        <a routerLink="/products" routerLinkActive="active-Link"> Lista de produtos </a>
       </div>
     </section>
-  </div>
+  </nav>
 </header>
