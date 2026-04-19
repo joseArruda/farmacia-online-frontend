@@ -21,40 +21,52 @@ export class Home {
   product: Product[]=[];
   allProducts: Product[]=[];
   cartProduct: []=[];
+  loading = false;
 
   currentPage: number = 1;
   lastPage: number = 1;
+  pages: number[] =[];
 
   
     constructor(
       private inventoryService: InventoryService,
       private cartService: Cartservice,
-      private router: Router,
       private route: ActivatedRoute
     ){}
   
     ngOnInit(){
       this.route.queryParams.subscribe(params=>{
-        console.log('parametros: ',params)
         this.currentPage = params['page'] || 1;
         this.loadProducts();
       })
     }
 
+    goToPage(page: number){
+      if(page < 1 || page > this.lastPage) return;
+    }
+
     loadProducts(){
-      this.inventoryService.getAll(this.currentPage, 10)
+      this.loading = true;
+      this.inventoryService.getAll(this.currentPage, 12)
       .subscribe(response=>{
-        console.log('load: ',response.data.data);
+        console.log('load: ',response.data);
         this.product = response.data.data;
         this.allProducts = response.data.data;
         this.currentPage = response.data.current_page;
         this.lastPage = response.data.last_page;
+
+        this.pages = Array.from(
+      {length: this.lastPage}, 
+      (_, i) => i + 1
+    );
+    this.loading = false;
       })
     }
 
     addCart(id:number){
       this.cartService.addProductCart(id)
       .subscribe((data)=>{
+        console.log('aqui:', data)
         this.cartProduct = data
         Swal.fire({
           icon: 'success',

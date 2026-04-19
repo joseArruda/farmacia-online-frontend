@@ -2,19 +2,29 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InventoryService } from '../../core/services/inventoryService.service';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { Navbar } from '../../shared/components/navbar/navbar';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit',
-  imports: [FormsModule, NgIf, Navbar],
+  imports: [FormsModule, NgIf, Navbar, NgFor],
   templateUrl: './product-edit.html',
   styleUrl: './product-edit.scss',
 })
 export class ProductEdit {
   product: any;
   selectedFile: File | null = null;
+
+  categories = [
+    'analgesicos',
+    'medicamentos',
+    'antialergicos',
+    'vitaminas',
+    'higiene',
+    'dermatologia',
+    'infantil'
+  ]
 
   constructor(
     private route: ActivatedRoute,

@@ -1,5 +1,9 @@
 <app-navbar (eventText)="filterProduct($event)" />
 <main class="home-container">
+  <section *ngIf="loading" class="load-container">
+    <div class="loader"></div>
+    <p class="loading-text">Carregando Produtos</p>
+  </section>
   <section class="home-card-product">
     <app-product-card
       class="product-card"
@@ -9,17 +13,34 @@
     />
   </section>
 
-  <div class="buttons-next-prev-container">
-    <button class="btn back-page" [routerLink]="['/']" [queryParams]="{ page: currentPage - 1 }">
+  <div *ngIf="!loading" class="pagination-container">
+    <button
+      [disabled]="currentPage === 1"
+      class="btn back-page"
+      [routerLink]="['/']"
+      [queryParams]="{ page: currentPage - 1 }"
+    >
       <img src="assets/icons/arrow.svg" alt="" />
-      Voltar
+      Anterior
     </button>
-    <button class="btn next-page" [routerLink]="['/']" [queryParams]="{ page: currentPage + 1 }">
-      Avançar
+
+    <button
+      class="pagination-number"
+      [class.active]="page == currentPage"
+      *ngFor="let page of pages"
+      (click)="goToPage(page)"
+    >
+      {{ page }}
+    </button>
+
+    <button
+      [disabled]="currentPage === lastPage"
+      class="btn next-page"
+      [routerLink]="['/']"
+      [queryParams]="{ page: currentPage + 1 }"
+    >
+      Proxímo
       <img src="assets/icons/arrow.svg" alt="" />
     </button>
   </div>
 </main>
-
-<!-- *ngIf="currentPage >= lastPage" -->
-<!-- *ngIf="currentPage < lastPage" -->

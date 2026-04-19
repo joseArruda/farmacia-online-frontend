@@ -4,7 +4,7 @@
 </div>
 <main class="container-cart">
   <section class="product-cart-container">
-    <p *ngIf="cartProducts.length === 0">Não Há itens no carrinho</p>
+    <p class="no-products" *ngIf="cartProducts.length === 0">Não há itens no carrinho</p>
 
     <section class="product-cart" *ngFor="let product of cartProducts">
       <div class="container-image">
@@ -55,7 +55,7 @@
 
   <section class="section-final-cart">
     <h3 class="title-summary">Resumo do Pedido</h3>
-    <div *ngIf="cartProducts.length > 0" class="total-price">
+    <div class="total-price">
       <h3>Total:</h3>
       <p class="price">R$: {{ totalCart() | number: '1.2-2' }}</p>
     </div>

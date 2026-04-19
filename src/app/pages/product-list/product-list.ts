@@ -21,7 +21,7 @@ export class ProductList {
   ) {}
 
   ngOnInit() {
-     this.inventoryService.getAll(1,10)
+     this.inventoryService.getAll(1,12)
   .subscribe(response => {
 
     this.product = response.data.data;

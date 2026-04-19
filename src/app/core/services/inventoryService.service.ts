@@ -15,7 +15,7 @@ export class InventoryService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(page: number = 1, per_page: number = 10)
+  getAll(page: number = 1, per_page: number = 12)
   : Observable<Api<Pagination<Product>>>{
     const params = new HttpParams()
     .set('page', page.toString())

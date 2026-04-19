@@ -16,7 +16,17 @@
     </div>
     <div class="category-product edit">
       <label for="category">Categoria do Produto</label>
-      <input [(ngModel)]="product.category" type="text" id="category" />
+      <select
+        class="category-select"
+        [(ngModel)]="product.category"
+        name="category"
+        type="text"
+        id="category"
+      >
+        <option *ngFor="let c of categories" [value]="c">
+          {{ c }}
+        </option>
+      </select>
     </div>
     <div class="stock-product edit">
       <label for="stock">Quantidade do Produto</label>

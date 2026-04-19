@@ -1,5 +1,29 @@
 .home-container{
     width: 100%;
+    .load-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+        gap: 10px;
+        animation: fadeIn 1s ease;
+
+        .loader{
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            border:5px solid #eee;
+            border-top:5px solid #4d0707;
+            border-right:5px solid #b31212;
+            border-bottom:5px solid #ff6a6a;
+            animation:spin 1s linear infinite;
+        }
+
+        .loading-text{
+            font-weight: 500;
+        }
+    }
     .home-card-product{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -8,42 +32,85 @@
         gap: 10px;
     }
 
-    .buttons-next-prev-container{
+    .pagination-container{
         display: flex;
         justify-content: center;
         width: 100%;
         margin: 2rem auto;
-        gap: 5px;
+        gap: 20px;
         .btn{
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 50px;
-            border-radius: 10px;
+            padding: 10px 20px;
             color: var(--white-ice);
-            font-weight: 700;
+            font-weight: 400;
             font-size: 18px;
             cursor: pointer;
-            opacity: 0.9;
-            border: 3px solid #d4d4d4;
+            border: none;
             gap: 10px;
-
+            background-color: var(--wine-red);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             &:hover{
-                opacity: 1;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 12px;
             }
         }
         .back-page{
-            background: linear-gradient(120deg, var(--green-dark), var(--green-forest));
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
             img{
                 transform: rotate(90deg);
             }
         }
 
+        .pagination-number{
+            font-weight: 600;
+            border: none;
+            width: 40px;
+            color: var(--white-ice);
+            background-color: var(--wine-red);
+            border-radius: 50%;
+        }
+
         .next-page{
-            background: linear-gradient(120deg, #082a6b, #2251b6);
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
             img{
                 transform: rotate(-90deg);
             }
         }
+
+        button.active{
+            background-color: var(--primary);
+            border: 2px solid #991c1c;
+        }
+
+        button:disabled{
+            opacity: 0.6;
+        }
     }
+}
+
+@keyframes spin{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
