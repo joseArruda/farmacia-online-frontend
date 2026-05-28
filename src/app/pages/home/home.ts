@@ -6,14 +6,17 @@ import { Navbar } from '../../shared/components/navbar/navbar';
 import { InventoryService } from '../../core/services/inventoryService.service';
 import { Product } from '../../models/product.model';
 import { Cartservice } from '../../core/services/cartservice.service';
+import { Loader } from "../../shared/components/loader/loader";
 
 import Swal from 'sweetalert2';
 import { ProductCard } from '../../shared/components/product-card/product-card';
+import { Carousel } from "../../shared/components/carousel/carousel";
+import { Guarantees } from "../../shared/components/guarantees/guarantees";
 
 @Component({
   selector: 'app-home',
    standalone: true,
-  imports: [ NgForOf, RouterLink, NgIf, Navbar, ProductCard],
+  imports: [NgForOf, RouterLink, NgIf, Navbar, ProductCard, Loader, Carousel, Guarantees],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -27,6 +30,8 @@ export class Home {
   lastPage: number = 1;
   pages: number[] =[];
 
+  selectedCategory: string = '';
+  searchText: string = '';
   
     constructor(
       private inventoryService: InventoryService,
@@ -77,13 +82,36 @@ export class Home {
       })
     }
 
+    applyFilters(){
+      this.product = this.allProducts.filter(product => {
+          const matchName = product.name
+            .toLowerCase()
+            .includes(this.searchText.toLowerCase());
+
+          const matchCategory = !this.selectedCategory ||
+            product.category.toLowerCase() === this.selectedCategory.toLowerCase();
+
+          return matchCategory && matchName;
+        })
+    }
+
     filterProduct(text: string){
       if(!text){
         this.product = this.allProducts;
         return;
       }
-        this.product = this.allProducts.filter(product =>
-        product.name.toLowerCase().includes(text.toLowerCase()))
+      this.searchText = text;
+      this.applyFilters();
+        
+    }
+
+    filterCategory(category: string){
+      if(!category){
+        this.product = this.allProducts;
+        return;
+      }
+      this.selectedCategory = category;
+      this.applyFilters();
     }
 }
 

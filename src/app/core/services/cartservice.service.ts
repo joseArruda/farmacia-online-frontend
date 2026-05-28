@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Cartservice {
-  private readonly API_URL = 'http://127.0.0.1:8000/api/cart';
+  private readonly API_URL = 
+    'https://farmacia-online-backend-production.up.railway.app/api/inventory';
 
   constructor( private http: HttpClient ){}
 

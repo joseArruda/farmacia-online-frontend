@@ -5,16 +5,28 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 0.5rem auto 0;
+        margin: 5px auto 0;
         height: 100%;
         
         width: 20rem;
         border-radius: 10px;
-        padding: 10px 5px;
+        
 
         h2{
             font-size: 32px;
+            color: var(--wine-red);
+            text-transform: capitalize;
+            margin: 25px auto 5px;
         }
+        .border-bottom-text{
+        display: flex;
+        justify-content: start;
+        border: 2px solid var(--wine-red);
+        width: 80px;
+        height: 0px;
+        margin: 0 auto 30px;
+        border-radius: 15px;
+    }
 
         .image-product{
             display: flex;
@@ -76,7 +88,7 @@
                 font-size: 16px;
                 display: flex;
                 align-items: center;
-                padding: 0 5px;
+                padding: 5px;
                 border-radius: 5px;
                 font-weight: 500;
                 background-color:#fff;
@@ -91,14 +103,14 @@
                 border-radius: 5px;
                 width: 100%;
                 height: 2rem;
-                background-color: #303030;
-                color: #fff;
+                background-color: var(--white-ice);
+                color: var(--mattle-black);
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 transition: all 0.5s;
                 &:hover{
-                    background-color: #000;
+                    background-color: #e9e9e9;
                     border: 2px solid #636363;
                 }
             }

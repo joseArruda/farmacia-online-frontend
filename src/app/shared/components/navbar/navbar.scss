@@ -93,6 +93,23 @@
         }
     }
 
+    .options{
+        width: 20px;
+        
+        
+        .category-select{
+            width: 20px;
+            background-color: #811a1a;
+            color: #ffffff;
+            text-transform: capitalize;
+            padding-left: 15px;
+            border: none;
+            border: 2px solid var(--white-ice);
+            border-radius: 5px;
+            
+        }
+    }
+
         .functions-header{
             display: flex;
             text-align: center;

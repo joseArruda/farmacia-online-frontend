@@ -1,5 +1,45 @@
 <app-navbar />
 
-<section class="product-list-container">
-  <app-product-card *ngFor="let product of product" [product]="product" mode="admin" />
-</section>
+<main class="main">
+  <div class="title-list-products-container">
+    <h2 class="product-list">Lista De Produtos</h2>
+    <span class="border-bottom-text"></span>
+  </div>
+  <app-loader *ngIf="loading" />
+  <section class="product-list-container">
+    <app-product-card *ngFor="let product of product" [product]="product" mode="admin" />
+  </section>
+
+  <div *ngIf="!loading" class="pagination-container">
+    <button
+      [disabled]="currentPage === 1"
+      class="btn back-page"
+      [routerLink]="['/products']"
+      [queryParams]="{ page: currentPage - 1 }"
+    >
+      <img src="assets/icons/arrow.svg" alt="" />
+      Anterior
+    </button>
+
+    <button
+      class="pagination-number"
+      [class.active]="page === currentPage"
+      *ngFor="let page of pages"
+      (click)="goToPage(page)"
+      [routerLink]="['/products']"
+      [queryParams]="{ page }"
+    >
+      {{ page }}
+    </button>
+
+    <button
+      [disabled]="currentPage === lastPage"
+      class="btn next-page"
+      [routerLink]="['/products']"
+      [queryParams]="{ page: currentPage + 1 }"
+    >
+      Proxímo
+      <img src="assets/icons/arrow.svg" alt="" />
+    </button>
+  </div>
+</main>

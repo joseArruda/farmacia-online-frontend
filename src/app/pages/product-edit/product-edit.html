@@ -2,9 +2,13 @@
 <div class="container-edit-product">
   <h1 class="title-edit-product">Editar Produto</h1>
   <section *ngIf="product">
-    <div class="image-product edit">
-      <label class="label-image" for="image">Upload da imagem</label>
-      <input (change)="onSelectedFile($event)" type="file" id="image" />
+    <div class="image-product-container edit">
+      <div class="label-image-product">
+        <label class="label-image" for="image">Upload da imagem</label>
+        <input (change)="onSelectedFile($event)" type="file" id="image" />
+      </div>
+
+      <img class="image-product" [src]="'http://127.0.0.1:8000/storage/' + product.image" />
     </div>
     <div class="name-product edit">
       <label for="name">Nome do Produto</label>

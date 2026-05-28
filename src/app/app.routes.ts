@@ -8,7 +8,7 @@ import { ProductList } from './pages/product-list/product-list';
 import { ProductDetails } from './pages/product-details/product-details';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full'},
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: Home, title: 'Farmácia Online' },
     { path: 'cart', component: Cart, title: 'Carrinho' },
     { path: 'product/edit/:id', component: ProductEdit, title: 'Editar Produto' },

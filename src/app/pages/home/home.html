@@ -1,9 +1,11 @@
-<app-navbar (eventText)="filterProduct($event)" />
+<app-navbar (eventText)="filterProduct($event)" (eventCategory)="filterCategory($event)" />
 <main class="home-container">
-  <section *ngIf="loading" class="load-container">
-    <div class="loader"></div>
-    <p class="loading-text">Carregando Produtos</p>
-  </section>
+  <app-carousel />
+
+  <app-guarantees />
+
+  <app-loader *ngIf="loading" />
+
   <section class="home-card-product">
     <app-product-card
       class="product-card"
@@ -26,9 +28,11 @@
 
     <button
       class="pagination-number"
-      [class.active]="page == currentPage"
+      [class.active]="page === currentPage"
       *ngFor="let page of pages"
       (click)="goToPage(page)"
+      [routerLink]="['/']"
+      [queryParams]="{ page }"
     >
       {{ page }}
     </button>

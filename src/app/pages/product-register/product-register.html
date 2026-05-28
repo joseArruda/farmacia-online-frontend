@@ -3,17 +3,28 @@
 <main class="container-register-product">
   <section>
     <h2>Cadastrar Produto</h2>
+    <span class="border-bottom-text"></span>
     <div class="image-product register">
       <label class="label-image" for="image">Upload da imagem</label>
       <input class="upload-image" (change)="RegisteredFile($event)" type="file" id="image" />
     </div>
     <div class="name-product register">
       <label for="name">Nome do Produto</label>
-      <input [(ngModel)]="product.name" type="text" id="name" />
+      <input
+        placeholder="Dipirona Monoidratada 500mg"
+        [(ngModel)]="product.name"
+        type="text"
+        id="name"
+      />
     </div>
     <div class="description-product register">
       <label for="description">Descrição do Produto</label>
-      <textarea [(ngModel)]="product.description" type="text" id="description"></textarea>
+      <textarea
+        placeholder="Esta vitamina auxilia no cresc..."
+        [(ngModel)]="product.description"
+        type="text"
+        id="description"
+      ></textarea>
     </div>
     <div class="category-product register">
       <label for="category">Categoria do Produto</label>
@@ -31,11 +42,11 @@
     </div>
     <div class="stock-product register">
       <label for="price">Quantidade do Produto</label>
-      <input [(ngModel)]="product.stock" type="number" id="price" />
+      <input placeholder="12" [(ngModel)]="product.stock" type="number" id="price" />
     </div>
     <div class="price-product register">
       <label for="price">Preço do Produto</label>
-      <input [(ngModel)]="product.price" type="number" id="price" />
+      <input placeholder="33,99" [(ngModel)]="product.price" type="number" id="price" />
     </div>
     <button (click)="createProduct()">Registrar produto</button>
   </section>

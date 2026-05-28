@@ -19,15 +19,15 @@ export class ProductRegister {
     name: '',
     description: '',
     category: '',
-    stock: 0,
-    price: 0,
+    stock: null,
+    price: null,
     image: null
   };
 
   categories = [
-    'analgesicos',
+    'analgésicos',
     'medicamentos',
-    'antialergicos',
+    'antialérgicos',
     'vitaminas',
     'higiene',
     'dermatologia',
@@ -45,8 +45,8 @@ export class ProductRegister {
     formData.append('name', this.product.name);
     formData.append('description', this.product.description);
     formData.append('category', this.product.category);
-    formData.append('stock', this.product.stock.toString());
-    formData.append('price', this.product.price.toString());
+    formData.append('stock', (this.product.stock ?? 0).toString());
+    formData.append('price', (this.product.price ?? 0).toString());
     if(this.product.image){
         formData.append('image', this.product.image);
     }
@@ -57,8 +57,8 @@ export class ProductRegister {
         name: '',
         description: '',
         category: 'medicamentos',
-        stock: 0,
-        price: 0,
+        stock: null,
+        price: null,
         image: null
       }
       Swal.fire({

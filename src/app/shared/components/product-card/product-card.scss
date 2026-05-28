@@ -181,8 +181,20 @@
 
                 .btn-add-cart{
                     color: var(--white-ice);
-                    background: linear-gradient(90deg, var(--green-dark), var(--green-forest));
-                    border: 1px solid var(--green-dark);
+                    background: linear-gradient(90deg, var(--wine-red), var(--primary));
+                    border: 1px solid var(--wine-red);
+                }
+
+                .btn-edit, .btn-remove, .btn-details, .btn-add-cart{
+                    transition: ease-in-out 0.2s;
+                }
+
+                .btn-edit:hover, .btn-remove:hover, .btn-details:hover, .btn-add-cart:hover {
+                    transform: scale(1.05);
+                }
+
+                .btn-edit:active, .btn-remove:active, .btn-details:active, .btn-add-cart:active {
+                    transform: scale(0.95);
                 }
             }
         }

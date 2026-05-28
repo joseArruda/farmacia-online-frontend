@@ -4,7 +4,10 @@
 </div>
 <main class="container-cart">
   <section class="product-cart-container">
-    <p class="no-products" *ngIf="cartProducts.length === 0">Não há itens no carrinho</p>
+    <span class="no-products" *ngIf="cartProducts.length === 0">
+      Não há itens no carrinho
+      <img width="250px" src="assets/images/emoji-triste.png" alt="" />
+    </span>
 
     <section class="product-cart" *ngFor="let product of cartProducts">
       <div class="container-image">

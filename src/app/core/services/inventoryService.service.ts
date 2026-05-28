@@ -11,7 +11,8 @@ import { Api } from '../../models/apiResponse.model';
   providedIn: 'root',
 })
 export class InventoryService {
-  private readonly API_URL = 'http://127.0.0.1:8000/api/inventory';
+  private readonly API_URL = 
+  'https://farmacia-online-backend-production.up.railway.app/api/inventory';
 
   constructor(private http: HttpClient) {}
 
