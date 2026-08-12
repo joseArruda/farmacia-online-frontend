@@ -8,7 +8,7 @@
         <input (change)="onSelectedFile($event)" type="file" id="image" />
       </div>
 
-      <img class="image-product" [src]="'http://127.0.0.1:8000/storage/' + product.image" />
+      <img class="image-product" [src]="getImageUrl(product.image)" />
     </div>
     <div class="name-product edit">
       <label for="name">Nome do Produto</label>

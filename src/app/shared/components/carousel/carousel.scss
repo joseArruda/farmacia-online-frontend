@@ -85,3 +85,9 @@
   border-radius:10px;
   box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
+
+@media (max-width: 768px) {
+  .carousel{
+    width: 95%;
+  }
+}

@@ -11,23 +11,20 @@
 
     <section class="product-cart" *ngFor="let product of cartProducts">
       <div class="container-image">
-        <img
-          class="image-product-cart-blur"
-          [src]="'http://127.0.0.1:8000/storage/' + product.product.image"
-        />
-        <img
-          class="image-product-cart"
-          [src]="'http://127.0.0.1:8000/storage/' + product.product.image"
-        />
+        <img class="image-product-cart-blur" [src]="getImageUrl(product.product.image)" />
+        <img class="image-product-cart" [src]="getImageUrl(product.product.image)" />
       </div>
 
       <div class="details-product-cart">
         <section class="section-product">
           <div class="name-category-product">
-            <p class="name-product-cart">{{ product.product.name }}</p>
-            <p class="category-product-cart">{{ product.product.category }}</p>
+            <p class="name-product-cart">{{ product.product?.name }}</p>
+            <p class="category-product-cart">{{ product.product?.category }}</p>
           </div>
-          <p class="price-product">Preço: {{ product.product.price }}</p>
+          <p class="price-product">
+            <span>Valor Unit.:</span>
+            R$: {{ product.product?.price | number: '1.2-2' }}
+          </p>
         </section>
 
         <section class="section-product-handling">

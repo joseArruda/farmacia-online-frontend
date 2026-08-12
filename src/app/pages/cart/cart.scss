@@ -26,7 +26,7 @@
         padding: 10px;
         background-color: #fff;
         width: 30vw;
-        min-width: 400px;
+        min-width: 290px;
         height: 75vh;
         overflow-y: auto;
         overflow-x: hidden;
@@ -96,7 +96,7 @@
             }
             .image-product-cart{
                 position: relative;
-                width: 95%;
+                width: 70%;
                 object-fit: contain;
                 height: auto;
                 border-radius: 15px;
@@ -129,6 +129,10 @@
                     font-weight: 600;
                     margin:0;
                     color: var(--green-forest);
+                    text-align: end;
+                    span{
+                        color: #000;
+                    }
                 }
             }
             
@@ -218,13 +222,14 @@
         max-width: 300px;
         min-width: 170px;
         display: flex;
+        margin-bottom: 10px;
         
         flex-direction: column;
         justify-content: start;
         align-items: center;
         padding: 10px 15px;
         flex: 1;
-        border-radius: 30px;
+        border-radius: 5px;
         background-color: #fff;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         border: 1px solid #ddd;

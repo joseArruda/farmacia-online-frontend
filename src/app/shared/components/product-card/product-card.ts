@@ -16,7 +16,8 @@ export class ProductCard {
   @Output() add = new EventEmitter<number>();
 
   constructor(
-    private router: Router
+    private router: Router,
+    private inventoryService: InventoryService
   ){}
 
   editProduct(id: number){
@@ -29,5 +30,18 @@ export class ProductCard {
 
   addToCart(){
     this.add.emit(this.product.id)
+  }
+
+  remove(id: number){
+    console.log("click")
+    this.inventoryService.removeProduct(id).subscribe(()=>{
+      
+    })
+  }
+
+  getImageUrl(image: string | null){
+
+    return `http://127.0.0.1:8000/storage/${image}`;
+
   }
 }

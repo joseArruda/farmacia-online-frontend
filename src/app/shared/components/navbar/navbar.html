@@ -22,16 +22,35 @@
       </div>
 
       <div class="functions-header">
-        <a
-          routerLink="/home"
-          routerLinkActive="active-Link"
-          [routerLinkActiveOptions]="{ exact: true }"
+        <button
+          class="menu-toggle"
+          [class.active]="menuAberto"
+          (click)="menuAberto = !menuAberto"
+          aria-label="Abrir menu"
         >
-          Home
-        </a>
-        <a routerLink="/cart" routerLinkActive="active-Link"> Carrinho </a>
-        <a routerLink="/product/new" routerLinkActive="active-Link"> Cadastrar produtos </a>
-        <a routerLink="/products" routerLinkActive="active-Link"> Lista de produtos </a>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="menu" [class.active]="menuAberto">
+          <a
+            routerLink="/home"
+            routerLinkActive="active-Link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="menuAberto = false"
+          >
+            Home
+          </a>
+          <a routerLink="/cart" routerLinkActive="active-Link" (click)="menuAberto = false">
+            Carrinho
+          </a>
+          <a routerLink="/product/new" routerLinkActive="active-Link" (click)="menuAberto = false">
+            Cadastrar produtos
+          </a>
+          <a routerLink="/products" routerLinkActive="active-Link" (click)="menuAberto = false">
+            Lista de produtos
+          </a>
+        </nav>
       </div>
     </section>
   </nav>

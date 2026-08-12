@@ -20,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 20px;
+            padding:  10px;
             color: var(--white-ice);
             font-weight: 500;
             font-size: 18px;
@@ -35,6 +35,10 @@
             &:hover{
                 background-color: #ffdcdc;
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 12px;
+            }
+
+            p{
+                margin: 0;
             }
         }
         .back-page{
@@ -78,5 +82,11 @@
         button:disabled{
             opacity: 0.6;
         }
+    }
+}
+
+@media (max-width: 400px) {
+    .btn p{
+        display: none;
     }
 }

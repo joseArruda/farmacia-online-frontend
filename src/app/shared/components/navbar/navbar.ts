@@ -11,6 +11,7 @@ import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 export class Navbar {
   search: string = '';
   isCartPage = false;
+  menuAberto = false;
 
   categories = [
     'analgesicos',

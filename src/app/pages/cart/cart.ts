@@ -24,13 +24,24 @@ export class Cart {
     this.cartLoad();
    }
 
-   cartLoad(){
-    this.cartService.getCart()
-    .subscribe((data)=>{
+   cartLoad() {
+  this.cartService.getCart()
+    .subscribe((data) => {
+
       this.cartProducts = data.data;
-      console.log('products', data.data)
-    })
-   }
+
+      console.log('products:', data.data);
+
+      data.data.forEach((item: any) => {
+        console.log(
+          'Carrinho:',
+          item.id,
+          'Produto:',
+          item.product
+        );
+      });
+    });
+}
 
    addCart(id: number){
         console.log('click')
@@ -38,6 +49,7 @@ export class Cart {
       .subscribe((data)=>{
         console.log(data)
         this.cartProducts = data;
+        this.cartLoad();
       })
     }
 
@@ -56,9 +68,15 @@ export class Cart {
       })
     }
 
-    totalCart(){
-      return this.cartProducts.reduce((total, item)=>{
-        return total + (Number(item.product.price) * item.quantity);
-      }, 0)
+    totalCart() {
+      return this.cartProducts.reduce((total, item) => {
+        return total + (Number(item.product?.price ?? 0) * Number(item.quantity ?? 0));
+      }, 0);
     }
+
+      getImageUrl(image: string | null){
+
+    return `http://127.0.0.1:8000/storage/${image}`;
+
+  }
 }

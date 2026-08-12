@@ -3,10 +3,10 @@
     <div class="image-container">
       <img
         class="image-blur"
-        [src]="'http://127.0.0.1:8000/storage/' + product.image"
-        [style.background-image]="'http://127.0.0.1:8000/storage/' + product.image"
+        [src]="getImageUrl(product.image)"
+        [style.background-image]="getImageUrl(product.image)"
       />
-      <img class="product-image" [src]="'http://127.0.0.1:8000/storage/' + product.image" />
+      <img class="product-image" [src]="getImageUrl(product.image)" />
     </div>
 
     <div class="information-product">
@@ -49,7 +49,11 @@
       >
         <img src="assets/icons/pen.svg" alt="" />Editar
       </button>
-      <button *ngIf="mode === 'admin'" class="btn-action-card btn-remove">
+      <button
+        *ngIf="mode === 'admin'"
+        class="btn-action-card btn-remove"
+        (click)="remove(product.id)"
+      >
         <img src="assets/icons/trash.svg" alt="" />Apagar
       </button>
     </div>
